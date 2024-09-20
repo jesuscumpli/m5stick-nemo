@@ -3,7 +3,7 @@
 
 // -=-=-=-=-=-=- Uncomment the platform you're building for -=-=-=-=-=-=-
 // #define STICK_C_PLUS
-#define STICK_C_PLUS2
+// #define STICK_C_PLUS2
 // #define STICK_C
 // #define CARDPUTER
 // -=-=- Uncommenting more than one at a time will result in errors -=-=-
@@ -13,7 +13,7 @@
 // #define LANGUAGE_PT_BR
 // #define LANGUAGE_IT_IT
 // #define LANGUAGE_FR_FR
-#define LANGUAGE_ES_ES
+// #define LANGUAGE_ES_ES
 
 // -- DEPRECATED - THESE ARE NOW EEPROM DEFINED -- //
 uint16_t BGCOLOR=0x0001; // placeholder
