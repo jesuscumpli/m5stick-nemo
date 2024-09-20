@@ -197,7 +197,7 @@
   #define TXT_SET_FGCOLOR "COLORE TESTO"
   #define TXT_SET_BGCOLOR "COLORE SFONDO"
   #define TXT_THEME "Tema Colori"
-  #define TXT_QR_CODES "QR Codes"
+  #define TXT_QR_CODES "Codici QR"
 #endif
 
 #if defined(LANGUAGE_PT_BR)
@@ -298,7 +298,7 @@
   #define TXT_SET_FGCOLOR "COR PRINCIPAL"
   #define TXT_SET_BGCOLOR "COR DE FUNDO"
   #define TXT_THEME "Tema De Cores"
-  #define TXT_QR_CODES "QR Codes"
+  #define TXT_QR_CODES "Codigos QR"
 #endif
 
 #if defined(LANGUAGE_FR_FR)
@@ -399,7 +399,7 @@
   #define TXT_SET_FGCOLOR "COULEUR PRINCIPALE"
   #define TXT_SET_BGCOLOR "COULEUR SECONDAIRE"
   #define TXT_THEME "Theme"
-  #define TXT_QR_CODES "QR Codes"
+  #define TXT_QR_CODES "Codes QR"
 #endif
 
 #if defined(LANGUAGE_ES_ES)
