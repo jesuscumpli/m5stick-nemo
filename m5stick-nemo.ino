@@ -13,6 +13,7 @@
 // #define LANGUAGE_PT_BR
 // #define LANGUAGE_IT_IT
 // #define LANGUAGE_FR_FR
+// #define LANGUAGE_ES_ES
 
 // -- DEPRECATED - THESE ARE NOW EEPROM DEFINED -- //
 uint16_t BGCOLOR=0x0001; // placeholder
@@ -26,7 +27,7 @@ uint16_t FGCOLOR=0xFFF1; // placeholder
   #define CARDPUTER
 #endif
 
-#if !defined(LANGUAGE_EN_US) && !defined(LANGUAGE_PT_BR) && !defined(LANGUAGE_IT_IT) && !defined(LANGUAGE_FR_FR)
+#if !defined(LANGUAGE_EN_US) && !defined(LANGUAGE_PT_BR) && !defined(LANGUAGE_IT_IT) && !defined(LANGUAGE_FR_FR) && !defined(LANGUAGE_ES_ES)
   #define LANGUAGE_EN_US
 #endif
 
@@ -163,7 +164,7 @@ uint16_t FGCOLOR=0xFFF1; // placeholder
 // -=-=-=-=-=- LIST OF CURRENTLY DEFINED FEATURES -=-=-=-=-=-
 // M5LED      - A visible LED (Red) exposed on this pin number
 // IRLED      - An IR LED exposed on this pin number
-// RTC        - Real-time clock exposed as M5.Rtc 
+// RTC        - Real-time clock exposed as M5.Rtc
 // AXP        - AXP192 Power Management exposed as M5.Axp
 // PWRMGMT    - StickC+2 Power Management exposed as M5.Power
 // KB         - Keyboard exposed as M5Cardputer.Keyboard
@@ -214,6 +215,7 @@ const String contributors[] PROGMEM = {
   "@9Ri7",
   "@gustavocelani",
   "@imxnoobx",
+  "@jesuscumpli",
   "@klamath1977",
   "@marivaaldo",
   "@mmatuda",
@@ -224,7 +226,7 @@ const String contributors[] PROGMEM = {
   "@vs4vijay"
 };
 
-int advtime = 0; 
+int advtime = 0;
 int cursor = 0;
 int wifict = 0;
 int brightness = 100;
@@ -238,7 +240,7 @@ bool androidPair = false;   // Internal flag to place AppleJuice into Android Pa
 bool samsungSpam = true;   // Internal flag to place AppleJuice into Samsung Spam random packet Mode
 bool maelstrom = false;     // Internal flag to place AppleJuice into Bluetooth Maelstrom mode
 bool portal_active = false; // Internal flag used to ensure NEMO Portal exits cleanly
-bool activeQR = false; 
+bool activeQR = false;
 const byte PortalTickTimer = 1000;
 String apSsidName = String("");
 bool isSwitching = true;
@@ -431,7 +433,7 @@ MENU mmenu[] = {
   { "TV-B-Gone", 13}, // We jump to the region menu first
   { "Bluetooth", 16},
   { "WiFi", 12},
-  { "QR Codes", 18},
+  { TXT_QR_CODES, 18},
   { TXT_SETTINGS, 2},
 };
 int mmenu_size = sizeof(mmenu) / sizeof(MENU);
@@ -467,7 +469,7 @@ void screenBrightness(int bright){
     M5.Axp.ScreenBreath(10 + round(((100 - 10) * bright / 100)));
   #endif
   #if defined(BACKLIGHT)
-    int bl = MINBRIGHT + round(((255 - MINBRIGHT) * bright / 100)); 
+    int bl = MINBRIGHT + round(((255 - MINBRIGHT) * bright / 100));
     analogWrite(BACKLIGHT, bl);
   #endif
 }
@@ -667,7 +669,7 @@ void setcolor(bool fg, int col){
   switch (col){
     case 1:
       color=0x0000;
-      break; 
+      break;
     case 2:
       color=0x000F;
       break;
@@ -743,7 +745,7 @@ void color_setup() {
     cursor=EEPROM.read(4); // get current fg color
   #endif
   rstOverride = true;
-  delay(1000);  
+  delay(1000);
   drawmenu(cmenu, cmenu_size);
 }
 
@@ -810,7 +812,7 @@ void theme_setup() {
   DISP.println(String(TXT_THEME));
   cursor = 0;
   rstOverride = true;
-  delay(1000);  
+  delay(1000);
   drawmenu(thmenu, thmenu_size);
 }
 
@@ -825,7 +827,7 @@ void theme_loop() {
       case 0:
         FG=11;
         BG=1;
-        break;       
+        break;
       case 1: // Nemo
         FG=11;
         BG=1;
@@ -833,7 +835,7 @@ void theme_loop() {
       case 2: // Tux
         FG=8;
         BG=1;
-        break;  
+        break;
       case 3: // Bill
         FG=16;
         BG=10;
@@ -841,7 +843,7 @@ void theme_loop() {
       case 4: // Steve
         FG=1;
         BG=8;
-        break;        
+        break;
       case 5: // Lilac
         FG=19;
         BG=6;
@@ -1110,7 +1112,7 @@ void tvbgone_setup() {
   }
   else if (region == EU) {
     DISP.println(TXT_RG_EMEA);
-  } 
+  }
   else {
     DISP.println(TXT_RG_CUSTOM);
   }
@@ -1137,7 +1139,7 @@ MENU tvbgmenu[] = {
 };
 int tvbgmenu_size = sizeof(tvbgmenu) / sizeof (MENU);
 
-void tvbgmenu_setup() {  
+void tvbgmenu_setup() {
   DISP.fillScreen(BGCOLOR);
   DISP.setTextSize(BIG_TEXT);
   DISP.setCursor(0, 0);
@@ -1146,7 +1148,7 @@ void tvbgmenu_setup() {
   DISP.println(TXT_REGION);
   cursor = region % 2;
   rstOverride = true;
-  delay(1000); 
+  delay(1000);
   drawmenu(tvbgmenu, tvbgmenu_size);
 }
 
@@ -1163,7 +1165,7 @@ void tvbgmenu_loop() {
     if (region == 3) {
       current_proc = 1;
       isSwitching = true;
-      rstOverride = false; 
+      rstOverride = false;
       return;
     }
 
@@ -1215,7 +1217,7 @@ void sendAllCodes() {
         ontime = powerCode->times[ti + 1]; // read word 2 - offtime
       #else
         ontime = powerCode->times[ti];  // read word 1 - ontime
-        offtime = powerCode->times[ti + 1]; // read word 2 - offtime      
+        offtime = powerCode->times[ti + 1]; // read word 2 - offtime
       #endif
       DISP.setTextSize(TINY_TEXT);
       DISP.printf("rti = %d Pair = %d, %d\n", ti >> 1, ontime, offtime);
@@ -1232,8 +1234,8 @@ void sendAllCodes() {
       endingEarly = true;
       current_proc = 1;
       isSwitching = true;
-      rstOverride = false; 
-      break;     
+      rstOverride = false;
+      break;
     }
     #endif
 #if defined(KB)
@@ -1242,9 +1244,9 @@ void sendAllCodes() {
       Serial.println("endingearly");
       endingEarly = true;
       delay(250);
-      break; 
+      break;
     }
-  } 
+  }
   if (endingEarly == false)
   {
     delay_ten_us(MAX_WAIT_TIME); // wait 655.350ms
@@ -1435,7 +1437,7 @@ void btmenu_loop() {
         isSwitching = true;
         current_proc = 1;
         break;
-      
+
       case 6:
         samsungSpam = true;
         current_proc = 9; // jump straight to appleJuice Advertisement
@@ -1449,8 +1451,8 @@ void btmenu_loop() {
 
 void random_MAC(){
   uint8_t tempMAC[ESP_BD_ADDR_LEN];
-      
-  // Keep ESP Manufactorer ID 
+
+  // Keep ESP Manufactorer ID
   tempMAC[0] = 0x02;
   tempMAC[1] = 0xE5;
 
@@ -1503,7 +1505,7 @@ void aj_setup(){
   DISP.setTextColor(BGCOLOR, FGCOLOR);
   DISP.println(" AppleJuice  ");
   DISP.setTextColor(FGCOLOR, BGCOLOR);
-  delay(1000);  
+  delay(1000);
   cursor = 0;
   sourApple = false;
   swiftPair = false;
@@ -1640,12 +1642,12 @@ void aj_loop(){
 }
 
 void aj_adv_setup(){
-  rstOverride = false;  
+  rstOverride = false;
 }
 
 void aj_adv(){
   // run the advertising loop
-  // Isolating this to its own process lets us take advantage 
+  // Isolating this to its own process lets us take advantage
   // of the background stuff easier (menu button, dimmer, etc)
   rstOverride = true;
   if (sourApple || swiftPair || androidPair || maelstrom || samsungSpam){
@@ -1706,7 +1708,7 @@ void aj_adv(){
       }
       Serial.println("");
 
-      i += display_name_len;  
+      i += display_name_len;
       oAdvertisementData.addData(std::string((char *)packet, size));
       free(packet);
       free((void*)display_name);
@@ -1746,7 +1748,7 @@ void aj_adv(){
       if (randval == 1)
       {
         uint8_t model = watch_models[rand() % 25].value;
-          
+
         packet[i++] = 14; // Size
         packet[i++] = 0xFF; // AD Type (Manufacturer Specific)
         packet[i++] = 0x75; // Company ID (Samsung Electronics Co. Ltd.)
@@ -1765,7 +1767,7 @@ void aj_adv(){
 
         oAdvertisementData.addData(std::string((char *)packet, 15));
       }
-      else 
+      else
       {
         uint8_t advertisementPacket[] = {
           0x02, 0x01, 0x18, 0x1B, 0xFF, 0x75, 0x00, 0x42, 0x09, 0x81, 0x02, 0x14,
@@ -1790,10 +1792,10 @@ void aj_adv(){
       }
       for (int i = 0; i < sizeof(Airpods); i ++) {
         Serial.printf("%02x", data[i]);
-      }      
+      }
       Serial.println("");
     }
-    
+
     pAdvertising->setAdvertisementData(oAdvertisementData);
     pAdvertising->start();
 #if defined(M5LED)
@@ -1809,7 +1811,7 @@ void aj_adv(){
       drawmenu(btmenu, btmenu_size);
     } else {
       isSwitching = true;
-      current_proc = 8;      
+      current_proc = 8;
       drawmenu(ajmenu, ajmenu_size);
     }
     sourApple = false;
@@ -1846,12 +1848,12 @@ void credits_setup(){
 
 void credits_loop(){
   if(millis() > advtime){
-    DISP.setTextColor(BLACK, WHITE);  
+    DISP.setTextColor(BLACK, WHITE);
     DISP.setCursor(0, 115);
     DISP.println("                   ");
     DISP.setCursor(0, 115);
     DISP.println(contributors[cursor]);
-    cursor++;  
+    cursor++;
     cursor = cursor % (sizeof(contributors)/sizeof(contributors[0]));
     DISP.setTextColor(FGCOLOR, BGCOLOR);
     advtime=millis() + 2000;
@@ -2159,7 +2161,7 @@ void wscan_result_loop(){
 }
 
 void wscan_setup(){
-  rstOverride = false;  
+  rstOverride = false;
   cursor = 0;
   DISP.fillScreen(BGCOLOR);
   DISP.setTextSize(BIG_TEXT);
@@ -2420,8 +2422,8 @@ void portal_loop(){
           if (deauth_tick==35) {                                                                     // 35 is +-100ms   (Add delay to attack, without reflection on portal)
             wsl_bypasser_send_raw_frame(deauth_frame, sizeof(deauth_frame_default));                 // DEAUTH   SEND FRAME
             deauth_tick=0;
-          } else { 
-            deauth_tick=deauth_tick+1; 
+          } else {
+            deauth_tick=deauth_tick+1;
           }
           DISP.setTextSize(SMALL_TEXT);                                                              // DEAUTH
           DISP.setTextColor(TFT_RED, BGCOLOR);                                                       // DEAUTH
@@ -2444,7 +2446,7 @@ void portal_loop(){
   }
   dnsServer.processNextRequest();
   webServer.handleClient();
-  
+
   if (check_next_press()){
     shutdownWebServer();
     portal_active = false;
@@ -2502,7 +2504,7 @@ void setup() {
     setcolor(false, EEPROM.read(5));
   #endif
   getSSID();
-  
+
   // Pin setup
 #if defined(M5LED)
   pinMode(M5LED, OUTPUT);
@@ -2545,7 +2547,7 @@ void loop() {
   switcher_button_proc();
   screen_dim_proc();
   check_menu_press();
-  
+
   // Switcher
   if (isSwitching) {
     isSwitching = false;
