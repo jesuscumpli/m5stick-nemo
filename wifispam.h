@@ -1,5 +1,5 @@
 // ===== Settings ===== //
-#if defined(LANGUAGE_FR_FR) || defined (LANGUAGE_PT_BR) // please check your country’s restrictions and choose only the Wi-Fi channels allowed there
+#if defined(LANGUAGE_FR_FR) || defined (LANGUAGE_PT_BR) || defined (LANGUAGE_ES_ES) // please check your country’s restrictions and choose only the Wi-Fi channels allowed there
 const uint8_t channels[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}; // used Wi-Fi channels (available: 1-14)
 #else 
 const uint8_t channels[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; // default for LANGUAGE_EN_US

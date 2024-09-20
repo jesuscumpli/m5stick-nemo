@@ -3,7 +3,7 @@
 
 // -=-=-=-=-=-=- Uncomment the platform you're building for -=-=-=-=-=-=-
 // #define STICK_C_PLUS
-// #define STICK_C_PLUS2
+#define STICK_C_PLUS2
 // #define STICK_C
 // #define CARDPUTER
 // -=-=- Uncommenting more than one at a time will result in errors -=-=-
@@ -13,6 +13,7 @@
 // #define LANGUAGE_PT_BR
 // #define LANGUAGE_IT_IT
 // #define LANGUAGE_FR_FR
+#define LANGUAGE_ES_ES
 
 // -- DEPRECATED - THESE ARE NOW EEPROM DEFINED -- //
 uint16_t BGCOLOR=0x0001; // placeholder
@@ -26,7 +27,7 @@ uint16_t FGCOLOR=0xFFF1; // placeholder
   #define CARDPUTER
 #endif
 
-#if !defined(LANGUAGE_EN_US) && !defined(LANGUAGE_PT_BR) && !defined(LANGUAGE_IT_IT) && !defined(LANGUAGE_FR_FR)
+#if !defined(LANGUAGE_EN_US) && !defined(LANGUAGE_PT_BR) && !defined(LANGUAGE_IT_IT) && !defined(LANGUAGE_FR_FR) && !defined(LANGUAGE_ES_ES)
   #define LANGUAGE_EN_US
 #endif
 
@@ -163,7 +164,7 @@ uint16_t FGCOLOR=0xFFF1; // placeholder
 // -=-=-=-=-=- LIST OF CURRENTLY DEFINED FEATURES -=-=-=-=-=-
 // M5LED      - A visible LED (Red) exposed on this pin number
 // IRLED      - An IR LED exposed on this pin number
-// RTC        - Real-time clock exposed as M5.Rtc 
+// RTC        - Real-time clock exposed as M5.Rtc
 // AXP        - AXP192 Power Management exposed as M5.Axp
 // PWRMGMT    - StickC+2 Power Management exposed as M5.Power
 // KB         - Keyboard exposed as M5Cardputer.Keyboard
@@ -214,6 +215,7 @@ const String contributors[] PROGMEM = {
   "@9Ri7",
   "@gustavocelani",
   "@imxnoobx",
+  "@jesuscumpli",
   "@klamath1977",
   "@marivaaldo",
   "@mmatuda",
